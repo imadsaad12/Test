@@ -14,7 +14,7 @@ CREATE TABEL comments(
     comment VARCHAR(255)
 );
 
-CREATE TABEL comments(
+CREATE TABEL rating(
     id SERIAL PRIMARY KEY,
     model_id  INT,
     name VARCHAR(255),
