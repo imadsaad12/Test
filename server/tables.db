@@ -10,7 +10,7 @@ CREATE TABEL comments(
     comment_id SERIAL PRIMARY KEY,
     model_id  INT,
     name VARCHAR(255),
-    dat VARCHAR(255),
+    date VARCHAR(255),
     comment VARCHAR(255)
 );
 
