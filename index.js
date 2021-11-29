@@ -4,7 +4,9 @@ const app = express();
 const pool = require("./database");
 const { Server } = require("socket.io");
 const http = require("http");
+const path = require("path");
 const server = http.createServer(app);
+const PORT=process.env.PORT || 4000;
 
 const io = new Server(server, {
   cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },
@@ -27,6 +29,9 @@ io.on("connection", (socket) => {
 });
 app.use(cors());
 app.use(express.json());
+if(process.env.NODE_ENV==="production"){
+  app.use(express.static(path.join(__dirname,"client/build")))
+}
 
 app.get("/models", async (req, res) => {
   const allModels = await pool.query("SELECT * FROM models");
@@ -87,4 +92,4 @@ app.post("/models", async (req, res) => {
   res.send("comment added");
 });
 
-server.listen(4000, () => console.log("Server is running on port 4000"));
+server.listen(PORT, () => console.log("Server is running"));

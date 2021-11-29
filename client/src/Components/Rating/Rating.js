@@ -81,7 +81,7 @@ const Ratings = ({ id, username }) => {
       stars: data.rating,
       name: username,
     };
-    const req = await axios.post("http://localhost:4000/rating", payload);
+    const req = await axios.post("/rating", payload);
     window.location.reload();
   };
 
