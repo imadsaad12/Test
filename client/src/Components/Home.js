@@ -5,7 +5,7 @@ const Home = () => {
   const [models, setmodels] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/models")
+      .get("/models")
       .then((result) => {
         setmodels(result.data);
       })

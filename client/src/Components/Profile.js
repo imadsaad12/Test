@@ -15,7 +15,7 @@ const Profile = () => {
   const [model, setModel] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/models/${id}`)
+      .get(`/models/${id}`)
       .then((res) => {
         setModel(res.data);
       })

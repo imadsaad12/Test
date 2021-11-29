@@ -62,7 +62,7 @@ const Ratings = ({ id, username }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/rating/${id}`)
+      .get(`/rating/${id}`)
       .then((res) => {
         setallRate(res.data.ratings);
         setCount(res.data.customers);

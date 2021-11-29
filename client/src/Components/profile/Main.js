@@ -42,7 +42,7 @@ const Main = ({ model, id, username, socket }) => {
       data.open ? setmessage(data.author + "typing . . .") : setmessage("");
     });
     axios
-      .get(`http://localhost:4000/comments/${id}`)
+      .get(`/comments/${id}`)
       .then((result) => {
         setComments(result.data);
       })
@@ -60,7 +60,7 @@ const Main = ({ model, id, username, socket }) => {
     setComment((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = async () => {
-    const req = await axios.post("http://localhost:4000/models", comment);
+    const req = await axios.post("/models", comment);
     window.location.reload();
     setOpen(false);
   };
